@@ -1,66 +1,36 @@
-import { useState } from "react";
-import avatar from "/public/avatar.png";
+import React from "react";
+import "./App.css";
 
-export default function App() {
-  const [xp, setXp] = useState(70);
-  const [level, setLevel] = useState(1);
-  const [quests, setQuests] = useState([
-    { id: 1, text: "Faire 30 min de maths", done: false, xp: 30 },
-    { id: 2, text: "Avancer sur une fiche de révision", done: false, xp: 40 },
-    { id: 3, text: "Pas de distraction pendant 1h", done: false, xp: 30 },
-  ]);
-
-  const handleQuestDone = (id) => {
-    const updated = quests.map((q) => {
-      if (q.id === id && !q.done) {
-        const newXp = xp + q.xp;
-        const newLevel = Math.floor(newXp / 100) + 1;
-        setXp(newXp);
-        setLevel(newLevel);
-        return { ...q, done: true };
-      }
-      return q;
-    });
-    setQuests(updated);
-  };
-
+function App() {
   return (
-    <div>
-      <h1>Andrea – Le Sage</h1>
-      <div className="card">
-        <img src="/avatar.png" alt="Avatar" />
-        <h2>Niveau {level}</h2>
-        <div className="progress">
-          <div
-            className="progress-bar"
-            style={{ width: `${xp % 100}%` }}
-          ></div>
-        </div>
-        <p>{xp % 100} / 100 XP</p>
-      </div>
+    <div className="app">
+      <header>
+        <h1>Andrea – Le Sage</h1>
+        <p>Objectif : Avoir 15 de moyenne</p>
+      </header>
 
-      <div className="card">
-        <h2>Quêtes</h2>
-        {quests.map((quest) => (
-          <div key={quest.id}>
-            <p style={{ textDecoration: quest.done ? "line-through" : "none" }}>
-              {quest.text}
-            </p>
-            <button disabled={quest.done} onClick={() => handleQuestDone(quest.id)}>
-              {quest.done ? "Fait ✅" : `+${quest.xp} XP`}
-            </button>
-          </div>
-        ))}
-      </div>
+      <section className="avatar-section">
+        {/* Image venant du dossier public */}
+        <img src="/avatar.png" alt="Avatar d'Andrea" className="avatar" />
+      </section>
 
-      <div className="card">
-        <h2>Récompenses</h2>
+      <section className="stats">
+        <h2>Compétences</h2>
         <ul>
-          <li>🎬 1 épisode de série</li>
-          <li>▶️ 20 min de YouTube</li>
-          <li>🎥 1 film ou séance détente</li>
+          <li>Maths</li>
+          <li>SES</li>
         </ul>
-      </div>
+
+        <h2>Compétence personnelle</h2>
+        <p>Moins procrastiner</p>
+
+        <h2>Récompenses</h2>
+        <p>Regarder une série, vidéo YouTube ou film</p>
+      </section>
     </div>
   );
 }
+
+export default App;
+
+
