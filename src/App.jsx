@@ -28,7 +28,7 @@ export default function App() {
     <div>
       <h1>Andrea – Le Sage</h1>
       <div className="card">
-        <img src={avatar} alt="avatar" className="avatar" />
+        <img src="/avatar.png" alt="Avatar" />
         <h2>Niveau {level}</h2>
         <div className="progress">
           <div
