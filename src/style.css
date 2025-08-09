@@ -1,0 +1,45 @@
+body {
+  font-family: 'Verdana', sans-serif;
+  background: #1c1131;
+  color: #e9d8a6;
+  margin: 0;
+  padding: 1rem;
+}
+h1, h2 {
+  color: #e9d8a6;
+}
+.card {
+  background: #2a1d47;
+  border: 2px solid #e9d8a6;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+button {
+  background-color: #e9d8a6;
+  color: #1c1131;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+.progress {
+  background-color: #444;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+}
+.progress-bar {
+  background-color: #e9d8a6;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.avatar {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
